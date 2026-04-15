@@ -1,4 +1,7 @@
-export default function Navbar(options: {volunteer?: boolean}) {
+import { User } from "@/src/User";
+import Profile from "../ui/Profile";
+
+export default function Navbar(options: {volunteer?: boolean, user: User}) {
     return (
     <nav className="row border-bottom">
         <div className="row left">
@@ -14,7 +17,7 @@ export default function Navbar(options: {volunteer?: boolean}) {
             <div className="feedback_button">Feedback</div>
             <div className="session_button">Schedule Session</div>
           </div>
-          <div className="profile" />
+          <Profile user={options.user} />
         </div>
       </nav>
     )
