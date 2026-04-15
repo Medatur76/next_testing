@@ -1,32 +1,47 @@
+import { User } from '@/src/User';
+import Navbar from '../../_components/interactive/Navbar';
+import Nameplate from '../../_components/ui/Nameplate';
+import './tmp.css';
+
+//temp
+const students: User[] = [
+  {
+    id: 2,
+    name: {first:"John",last:"Doe"}
+  },
+  {
+    id: 3,
+    name: {first:"Jane",last:"Doe"}
+  }
+];
+
 export default function Teacher() {
   return (
     <>
-      <nav>
-        <div className="left">
-          <img src={"./icon.png"} />
-          <div className="buttons">
-            <div>Instructor Chat</div>
-            <div>Sessions</div>
-            <div>Volunteer Portal</div>
+      <Navbar volunteer/>
+      <div className="row" style={{justifyContent: 'space-between'}}>
+        <div className="border-right">
+          <div className="border-bottom">
+            <p className="subtitle">Upcomming Session</p>
           </div>
-        </div>
-        <div className="right">
-          <div className="buttons">
-            <div className="feedback_button">Feedback</div>
-            <div className="session_button">Schedule Session</div>
-          </div>
-          <div className="profile" />
-        </div>
-      </nav>
-      <header>
-        <div>
           <div>
-            <div>Upcomming Session</div>
-            <a>Schedule New</a>
+            <p className="subtitle">Chats</p>
+            <p># main</p>
+            {students.map((student) => <p># {student.name.first}</p>)}
           </div>
         </div>
-      </header>
-      <div></div>
+        <div></div>
+        <div className="border-left">
+          <div className="border-bottom">
+            <p className="subtitle">Teacher</p>
+            <Nameplate user={{id:1,name: {first:"Kiernan",last:"Sharief"}}} />
+          </div>
+          <div>
+            <p className="subtitle">Students</p>
+            {students.map((student) => Nameplate({user: student}))}
+          </div>
+        </div>
+      </div>
     </>
   )
 }

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+    --border-top: solid none none none;
+    --border-left: none none none solid;
+    --border-right: none solid none none;
+    --border-bottom: none none solid none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+@utility border-* {
+    border-color: rgb(65, 65, 65);
+    border-width: 2px;
+    border-style: --value(--border-*);
+}
