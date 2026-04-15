@@ -2,6 +2,5 @@
     border: solid 2px rgb(134, 134, 134);
     border-radius: 10px;
     background-color: rgb(242, 242, 242);
-    min-width: 10vw;
-    min-height: 10vh;
+    margin: 0; padding: 0;
 }

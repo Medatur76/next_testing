@@ -28,10 +28,21 @@ export default function CodeBox() {
             }
         };
 
+        //Copilot code. works lol
+        const stopSharing = () => {
+            if (screen.current && screen.current.srcObject) {
+                const stream = screen.current.srcObject as MediaStream;
+                stream.getVideoTracks().forEach(track => track.stop());
+                stream.getAudioTracks().forEach(track => track.stop());
+                screen.current.srcObject = null;
+                setSharing(false);
+            }
+        };
+
         return (
-            <Box>
+            <Box className="cameraBox">
                 <video ref={screen} autoPlay />
-                <button onClick={startSharing}>
+                <button onClick={sharing ? stopSharing : startSharing}>
                     Share
                 </button>
             </Box>

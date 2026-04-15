@@ -1,0 +1,20 @@
+.cameraBox, .cameraBox > video {
+    width: 30vw;
+    height: 10vh;
+}
+
+.cameraBox > video {
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.cameraBox > .optionButtons {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.cameraBox > .optionButtons > .button {}

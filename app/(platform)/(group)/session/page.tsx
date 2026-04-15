@@ -4,10 +4,11 @@ import CodeBox from "../_components/interactive/CodeBox";
 export default function Session() {
     return (
         <>
-            <div>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
                 <Camera />
                 <CodeBox />
             </div>
+            <div></div>
         </>
     )
 }
