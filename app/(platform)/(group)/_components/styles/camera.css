@@ -1,11 +1,16 @@
-.cameraBox, .cameraBox > video {
-    width: 30vw;
-    height: 10vh;
+.cameraBox {
+    position: relative;
+    overflow: hidden;
+    width: 25vw;
+    aspect-ratio: 5/3;
+    display: inline-flex; /* or flex with wrap */
+    flex-wrap: wrap;
 }
 
-.cameraBox > video {
+video {
     position: absolute;
     top: 0; left: 0;
+    width: inherit;
 }
 
 .cameraBox > .optionButtons {

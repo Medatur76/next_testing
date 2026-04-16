@@ -4,6 +4,7 @@ import Box from "../ui/Box";
 import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faVideoSlash } from "@fortawesome/free-solid-svg-icons";
+import '../styles/camera.css';
 
 export default function Camera(options: {user?: User}) {
     if (!options.user) {
