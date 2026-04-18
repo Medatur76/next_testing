@@ -42,7 +42,7 @@ export default function CodeBox() {
         };
 
         return (
-            <Box className="cameraBox">
+            <Box className={"cameraBox" + (sharing ? " visual" : "")}>
                 <video ref={screen} autoPlay />
                 <div className="optionButtons">
                     <div className="button" onClick={sharing ? stopSharing : startSharing}>

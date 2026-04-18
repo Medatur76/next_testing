@@ -6,12 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faVideoSlash, faMicrophone, faMicrophoneSlash } from "@fortawesome/free-solid-svg-icons";
 import '../styles/camera.css';
 
-export default function Camera(options: {user?: User}) {
+export default function Camera(options: {user?: User, width?: string}) {
+    const [useCamera, setUseCamera] = useState(false), [useMic, setUseMic] = useState(false);
+    const camera = useRef(null), mic = useRef(null);
+
     if (!options.user) {
-
-        const [useCamera, setUseCamera] = useState(false), [useMic, setUseMic] = useState(false);
-
-        const camera = useRef(null), mic = useRef(null);
 
         //Copilot code. works lol
         const stopCamera = () => {
@@ -62,7 +61,7 @@ export default function Camera(options: {user?: User}) {
         };
 
         return (
-            <Box className="cameraBox">
+            <Box className={"cameraBox" + (useCamera ? " visual" : "")} width={options.width}>
                 <video autoPlay ref={camera} />
                 <div className="optionButtons">
                     <div className="button" onClick={useCamera ? stopCamera : startCamera}>
@@ -75,4 +74,14 @@ export default function Camera(options: {user?: User}) {
             </Box>
         )
     }
+
+    return (
+        <Box className={"cameraBox student" + (useCamera ? " visual" : "")} width={options.width}>
+            {useCamera ? <video autoPlay ref={camera} /> : <div style={{width: '100%', height: '100%', flexWrap: 'wrap', display: 'flex', justifyContent: 'center', alignContent: 'center'}}><FontAwesomeIcon size="3x" icon={faVideoSlash} /></div> }
+            <div style={{position: 'absolute', left: '20px', padding: '2px 6px', bottom: '0', justifyContent: 'left', marginBottom: '10px', backgroundColor: 'rgba(0,0,0,.1)', borderRadius: '10px', boxShadow: '1px 1px 3px gray'}}>
+                {useMic ? undefined : <FontAwesomeIcon icon={faMicrophoneSlash} style={{marginRight: '10px'}}/>}
+                {options.user.name.last + ", " + options.user.name.first}
+            </div>
+        </Box>
+    )
 }

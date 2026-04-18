@@ -3,15 +3,24 @@
     overflow: hidden;
     width: 25vw;
     aspect-ratio: 5/3;
-    height: 15vw;
     display: inline-flex; /* or flex with wrap */
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cameraBox.student {
+    margin: 1% .2%;
+}
+
+.cameraBox.visual {
+    box-shadow: inset 1px 1px 3px rgb(197, 197, 197), inset -1px -1px 3px rgb(197, 197, 197), -2px 2px 20px 0px #333333, 2px -2px 20px #333333;
 }
 
 video {
     position: absolute;
     top: 0; left: 0;
     width: inherit;
+    aspect-ratio: inherit;
 }
 
 .cameraBox > .optionButtons {
@@ -21,11 +30,12 @@ video {
     flex-direction: row;
     justify-content: space-evenly;
     width: 70%;
-    padding: 3% 0;
+    padding: 6% 0;
 }
 
 .cameraBox > .optionButtons > .button {
-    background-color: blue;
+    background-color: rgb(190, 190, 190);
     border-radius: 10px;
     padding: 3%;
+    box-shadow: 1px 1px 3px rgb(80, 80, 80);
 }
