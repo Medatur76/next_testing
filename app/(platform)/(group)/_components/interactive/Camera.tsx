@@ -65,10 +65,10 @@ export default function Camera(options: {user?: User, width?: string}) {
                 <video autoPlay ref={camera} />
                 <div className="optionButtons">
                     <div className="button" onClick={useCamera ? stopCamera : startCamera}>
-                        <FontAwesomeIcon icon={useCamera ? faVideoSlash : faVideo} />
+                        <FontAwesomeIcon icon={useCamera ? faVideo : faVideoSlash} />
                     </div>
                     <div className="button" onClick={useMic ? stopMic : startMic}>
-                        <FontAwesomeIcon icon={useMic ? faMicrophoneSlash : faMicrophone} />
+                        <FontAwesomeIcon icon={useMic ? faMicrophone : faMicrophoneSlash} />
                     </div>
                 </div>
             </Box>

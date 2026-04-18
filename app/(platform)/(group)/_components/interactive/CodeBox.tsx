@@ -5,16 +5,16 @@ import { useRef, useState } from "react";
 import Box from "../ui/Box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChromecast } from "@fortawesome/free-brands-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 
 export default function CodeBox() {
     //0: Screenshare
     //1: Raw code (not implemented yet)
-    const [mode, setMode] = useState(0);
+    const [mode, setMode] = useState(0), [sharing, setSharing] = useState(false);
+
+    const screen = useRef(null);
 
     if (!mode) {
-        const [sharing, setSharing] = useState(false);
-
-        const screen = useRef(null);
 
         //Copilot code. works lol
         const stopSharing = () => {
