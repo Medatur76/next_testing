@@ -3,6 +3,7 @@
     overflow: hidden;
     width: 25vw;
     aspect-ratio: 5/3;
+    height: 15vw;
     display: inline-flex; /* or flex with wrap */
     flex-wrap: wrap;
 }
@@ -20,6 +21,11 @@ video {
     flex-direction: row;
     justify-content: space-evenly;
     width: 70%;
+    padding: 3% 0;
 }
 
-.cameraBox > .optionButtons > .button {}
+.cameraBox > .optionButtons > .button {
+    background-color: blue;
+    border-radius: 10px;
+    padding: 3%;
+}

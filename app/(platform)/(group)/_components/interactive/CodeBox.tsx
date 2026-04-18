@@ -3,6 +3,8 @@
 'use client';
 import { useRef, useState } from "react";
 import Box from "../ui/Box";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChromecast } from "@fortawesome/free-brands-svg-icons";
 
 export default function CodeBox() {
     //0: Screenshare
@@ -13,20 +15,6 @@ export default function CodeBox() {
         const [sharing, setSharing] = useState(false);
 
         const screen = useRef(null);
-
-        const startSharing = async () => {
-            try {
-                const stream = await navigator.mediaDevices.getDisplayMedia({video: true});
-        
-                if (screen.current) screen.current.srcObject = stream;
-
-                setSharing(true);
-
-                stream.getVideoTracks()[0].onended = () => setSharing(false);
-            } catch (e) {
-                //Do something in the box 
-            }
-        };
 
         //Copilot code. works lol
         const stopSharing = () => {
@@ -39,12 +27,28 @@ export default function CodeBox() {
             }
         };
 
+        const startSharing = async () => {
+            try {
+                const stream = await navigator.mediaDevices.getDisplayMedia({video: true});
+        
+                if (screen.current) screen.current.srcObject = stream;
+
+                setSharing(true);
+
+                stream.getVideoTracks()[0].onended = stopSharing;
+            } catch (e) {
+                //Do something in the box 
+            }
+        };
+
         return (
             <Box className="cameraBox">
                 <video ref={screen} autoPlay />
-                <button onClick={sharing ? stopSharing : startSharing}>
-                    Share
-                </button>
+                <div className="optionButtons">
+                    <div className="button" onClick={sharing ? stopSharing : startSharing}>
+                        <FontAwesomeIcon icon={faChromecast} />
+                    </div>
+                </div>
             </Box>
         )
     }
