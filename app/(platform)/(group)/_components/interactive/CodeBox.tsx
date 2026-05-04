@@ -29,7 +29,7 @@ export default function CodeBox() {
 
         const startSharing = async () => {
             try {
-                const stream = await navigator.mediaDevices.getDisplayMedia({video: true});
+                const stream = await navigator.mediaDevices.getDisplayMedia({video: {aspectRatio: {ideal: 5/3}}});
         
                 if (screen.current) screen.current.srcObject = stream;
 
